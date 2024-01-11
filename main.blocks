@@ -1,1 +1,35 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="9G!UuXB+nt`mh#T66yS8">myMinimap</variable></variables><block type="pxt-on-start" id="T[1PI?4*SlxIQDv|.9Q$" x="0" y="0"></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="9G!UuXB+nt`mh#T66yS8">myMinimap</variable><variable id="=Z5sm^37j%=VE,jx`L$K">mySprite</variable><variable type="KIND_SpriteKind" id="A=-8weCmSr5D)76z0Twb">Player</variable><variable type="KIND_SpriteKind" id="7G8!.YWlzG]KCTj!$ut@">Projectile</variable><variable type="KIND_SpriteKind" id="0v`8-D[9[ggra:c[(Uyo">Food</variable><variable type="KIND_SpriteKind" id="xza{EW=GR)(2aw/uO7`I">Enemy</variable><variable type="KIND_SpriteKind" id="Cy.6-`W:e|it2^}36?|.">StatusBar</variable><variable type="KIND_MapConnectionKind" id=".}/lyKjap57PxUb4|)h2">Door1</variable><variable type="KIND_MapConnectionKind" id="l]Gnj}hUWmu((zE_%uan">Door2</variable><variable type="KIND_MapConnectionKind" id="KfgYH!5WMo)@#4xHeTp6">Door3</variable><variable type="KIND_MapConnectionKind" id="NwQEL.Qa!1rG*dJgb}NO">Door4</variable></variables><block type="pxt-on-start" id="T[1PI?4*SlxIQDv|.9Q$" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="]4r#;~7+=Eh+|iv89^]("><field name="VAR" id="=Z5sm^37j%=VE,jx`L$K">mySprite</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Uk$CIFEI;*brc0Vu(:ni"><value name="img"><shadow type="screen_image_picker" id="pNfhyES:LRji+`DP~!B;"><field name="img">img`
+. . . . f f f f . . . . 
+. . f f e e e e f f . . 
+. f f e e e e e e f f . 
+f f f f 4 e e e f f f f 
+f f f 4 4 4 e e f f f f 
+f f f 4 4 4 4 e e f f f 
+f 4 e 4 4 4 4 4 4 e 4 f 
+f 4 4 f f 4 4 f f 4 4 f 
+f e 4 d d d d d d 4 e f 
+. f e d d b b d d e f . 
+. f f e 4 4 4 4 e f f . 
+e 4 f b 1 1 1 1 b f 4 e 
+4 d f 1 1 1 1 1 1 f d 4 
+4 4 f 6 6 6 6 6 6 f 4 4 
+. . . f f f f f f . . . 
+. . . f f . . f f . . . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"pNfhyES:LRji+`DP~!B;"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="#7{mLy|rV3:M4GEYWIUM"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="mp_setPlayerSprite" id="OrlBnx2_9+4_q=|#DQJ6"><value name="player"><shadow type="mp_playerSelector" id="GIIl[*CJOD|0#X?NLM#B"><field name="number">mp.PlayerNumber.One</field></shadow></value><value name="sprite"><shadow type="spritescreate" id="zPjHuFH=9_c,l5SL=|fM"><value name="img"><shadow type="screen_image_picker" id="TI.Dw$C~xqWC}^z~5t:U"><field name="img">img`
+. . . . f f f f . . . . 
+. . f f e e e e f f . . 
+. f f e e e e e e f f . 
+f f f f 4 e e e f f f f 
+f f f 4 4 4 e e f f f f 
+f f f 4 4 4 4 e e f f f 
+f 4 e 4 4 4 4 4 4 e 4 f 
+f 4 4 f f 4 4 f f 4 4 f 
+f e 4 d d d d d d 4 e f 
+. f e d d b b d d e f . 
+. f f e 4 4 4 4 e f f . 
+e 4 f b 1 1 1 1 b f 4 e 
+4 d f 1 1 1 1 1 1 f d 4 
+4 4 f 6 6 6 6 6 6 f 4 4 
+. . . f f f f f f . . . 
+. . . f f . . f f . . . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"TI.Dw$C~xqWC}^z~5t:U"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="HpOeq:?aKNFb^~m.@f0h"><field name="MEMBER">Player</field></shadow></value></shadow></value><next><block type="set_current_tilemap" id="@3l`t;R_VN7QVT/bSr}c"><value name="tilemap"><shadow type="tiles_tilemap_editor" id="1;#K{a.Xdx=K(v62FX|;"><field name="tilemap">tilemap`level1`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"level1"}}</data></shadow></value><next><block type="camerafollow" id="QJ;ng+vG^]AYLY$[!}1,"><value name="sprite"><block type="variables_get" id="ERA4OJqI0fA)$N]/(0vh"><field name="VAR" id="=Z5sm^37j%=VE,jx`L$K">mySprite</field></block></value><next><block type="spritesetpos" id="25F|1+~aai6v/#:[!u=y"><value name="sprite"><block type="variables_get" id="wByN%zJ6YR@zd~%-bc6c"><field name="VAR" id="=Z5sm^37j%=VE,jx`L$K">mySprite</field></block></value><value name="x"><shadow type="positionPicker" id="gW~]B^yGndLQ;GK@7*^x"><field name="index">70</field></shadow></value><value name="y"><shadow type="positionPicker" id="C7oP:9B%1qO#|TgzD_!z"><field name="index">60</field></shadow></value></block></next></block></next></block></next></block></next></block></statement></block><block type="mapsetwallat" id="n.nb0[n!5:]G?BoCczwY" disabled="true" x="910" y="190"><value name="on"><shadow type="toggleOnOff" id="-XuwIJ9J`WvG#rVDj?Kf" disabled="true"><field name="on">false</field></shadow></value><value name="loc"><shadow type="mapgettile" id=")M+K}$`CJw.y=}FpxHG@" disabled="true"><value name="col"><shadow type="math_number" id="j{GxGG|y`Xd|thp:i:Sk" disabled="true"><field name="NUM">3</field></shadow></value><value name="row"><shadow type="math_number" id="|i:@5y1UBcK+/#*Ks]J7" disabled="true"><field name="NUM">7</field></shadow></value></shadow></value></block><block type="gameinterval" id="Nv!OyD#{pPWELrI^P7-g" x="30" y="410"><value name="period"><shadow type="timePicker" id=":9W[Zu_W-Sc?iOWBtW|L"><field name="ms">500</field></shadow></value><statement name="HANDLER"><block type="variables_set" id="^Iq];dqX`Xy=M=H@0/|B"><field name="VAR" id="9G!UuXB+nt`mh#T66yS8">myMinimap</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="create_minimap" id="t%BMpFsBonYWW0{?)$]Z"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="true"></mutation><field name="scale">MinimapScale.Half</field><value name="borderWidth"><shadow type="math_number" id="`Qf_BT%dHac{5eM9fM6`"><field name="NUM">2</field></shadow></value><value name="borderColor"><shadow type="colorindexpicker" id="W|n=e}CbQ0;9/:Pk(@F_"><field name="index">0</field></shadow></value></block></value></block></statement></block></xml>
