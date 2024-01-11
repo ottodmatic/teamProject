@@ -2,9 +2,7 @@
     "name": "TeamProject",
     "description": "",
     "dependencies": {
-        "device": "*",
-        "animation": "*",
-        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2"
+        "device": "*"
     },
     "files": [
         "main.blocks",
