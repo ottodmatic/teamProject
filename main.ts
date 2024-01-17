@@ -2,10 +2,19 @@ namespace SpriteKind {
     export const Door = SpriteKind.create()
 }
 function Grey () {
-	
+    play1.setPosition(22, 88)
+    tiles.setWallAt(tiles.getTileLocation(11, 5), false)
+    tileList.removeAt(0)
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (sprite, location) {
+    tiles.setCurrentTilemap(tileList._pickRandom())
+    count += 1
+})
 function purpleGreen_1 () {
-	
+    play1.setPosition(186, 120)
+    tiles.setWallAt(tiles.getTileLocation(0, 5), false)
+    tiles.setWallAt(tiles.getTileLocation(0, 4), false)
+    tileList.removeAt(1)
 }
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`play2`, SpriteKind.Player))
@@ -35,9 +44,17 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (sprite, location) {
     tiles.setCurrentTilemap(tileList._pickRandom())
+    count += 1
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
+    tiles.setCurrentTilemap(tileList._pickRandom())
+    count += 1
 })
 function purpleGreen_2 () {
-	
+    play1.setPosition(22, 104)
+    tiles.setWallAt(tiles.getTileLocation(11, 6), false)
+    tiles.setWallAt(tiles.getTileLocation(11, 5), false)
+    tileList.removeAt(3)
 }
 function lvl_1 () {
     scene.setBackgroundColor(6)
@@ -65,10 +82,35 @@ function lvl_1 () {
     health_1 = statusbars.create(20, 4, StatusBarKind.Health)
     health_1.attachToSprite(play1)
     controller.moveSprite(play1, 100, 100)
+    tiles.setWallAt(tiles.getTileLocation(11, 6), false)
     lv1en()
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
+    tiles.setCurrentTilemap(tileList._pickRandom())
+    count += 1
+})
+tileUtil.onMapLoaded(function (tilemap2) {
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
+        lvl_1()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(0, 5), sprites.dungeon.stairEast)) {
+        purpleGreen_1()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(5, 11), sprites.dungeon.stairNorth)) {
+        purplePurple()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 5), sprites.dungeon.stairEast)) {
+        Grey()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.stairWest)) {
+        purpleGreen_2()
+    }
+})
 function purplePurple () {
-	
+    play1.setPosition(22, 88)
+    tiles.setWallAt(tiles.getTileLocation(5, 11), false)
+    tiles.setWallAt(tiles.getTileLocation(6, 11), false)
+    tileList.removeAt(2)
 }
 function lv1en () {
     lvl1en = sprites.create(img`
@@ -96,20 +138,16 @@ function lv1en () {
 let lvl1en: Sprite = null
 let health_1: StatusBarSprite = null
 let health_2: StatusBarSprite = null
-let play1: Sprite = null
 let play2: Sprite = null
+let count = 0
+let play1: Sprite = null
 let tileList: tiles.TileMapData[] = []
 let TileMapLevel = 0
 tileList = [
-tilemap`level0`,
+tilemap`level7`,
 tilemap`level2`,
 tilemap`level8`,
-tilemap`level2`
+tilemap`level5`
 ]
-tiles.setCurrentTilemap(tilemap`level0`)
-if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
-    lvl_1()
-}
-if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
-	
-}
+tiles.setCurrentTilemap(tilemap`level2`)
+lvl_1()
