@@ -213,6 +213,25 @@ namespace myTiles {
 2 . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,sprites.dungeon.floorDark0,sprites.dungeon.floorMixed,sprites.dungeon.stairLarge,sprites.dungeon.floorDarkDiamond,sprites.dungeon.floorDark1,sprites.dungeon.floorDark4,sprites.dungeon.floorLight2,sprites.dungeon.floorLight5,sprites.dungeon.purpleInnerNorthEast,sprites.dungeon.purpleInnerSouthEast], TileScale.Sixteen);
+            case "level16":
+            case "level16":return tiles.createTilemap(hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16], TileScale.Sixteen);
         }
         return null;
     })

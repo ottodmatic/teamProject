@@ -99,6 +99,7 @@ let health_2: StatusBarSprite = null
 let play1: Sprite = null
 let play2: Sprite = null
 let tileList: tiles.TileMapData[] = []
+let TileMapLevel = 0
 tileList = [
 tilemap`level0`,
 tilemap`level2`,
@@ -106,4 +107,9 @@ tilemap`level8`,
 tilemap`level2`
 ]
 tiles.setCurrentTilemap(tilemap`level0`)
-lvl_1()
+if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
+    lvl_1()
+}
+if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
+	
+}

@@ -9,7 +9,8 @@
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.1.0",
         "multiplayer": "*",
         "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
-        "Makey Makey Keymappings": "github:joylabz/makeymakey-makecode-arcade-extension#1.0.3"
+        "Makey Makey Keymappings": "github:joylabz/makeymakey-makecode-arcade-extension#1.0.3",
+        "sprite-scaling": "*"
     },
     "files": [
         "main.blocks",
