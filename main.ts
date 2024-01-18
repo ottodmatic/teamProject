@@ -17,7 +17,6 @@ function purpleGreen_1 () {
     tiles.setWallAt(tiles.getTileLocation(0, 4), false)
 }
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`play2`, SpriteKind.Player))
     play2 = sprites.create(img`
         . . . . f f f f . . . . . 
         . . f f f f f f f f . . . 
@@ -36,6 +35,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         . . . f f f f f f . . . . 
         . . . f f . . f f . . . . 
         `, SpriteKind.Player)
+    mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), play2)
     play2.setPosition(play1.x, play1.y)
     scene.cameraFollowSprite(play2)
     health_2 = statusbars.create(20, 4, StatusBarKind.Health)
@@ -138,7 +138,7 @@ play1 = sprites.create(img`
     . . . f f f f f f . . . 
     . . . f f . . f f . . . 
     `, SpriteKind.Player)
-mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets.image`play1`, SpriteKind.Player))
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), play1)
 play1.setPosition(80, 60)
 scene.cameraFollowSprite(play1)
 let health_1 = statusbars.create(20, 4, StatusBarKind.Health)
