@@ -2,21 +2,22 @@ namespace SpriteKind {
     export const Door = SpriteKind.create()
 }
 function Grey () {
-    tileList.removeAt(0)
     play1.setPosition(22, 88)
     tiles.setWallAt(tiles.getTileLocation(11, 5), false)
+    tileList.removeAt(0)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (sprite, location) {
     tiles.setCurrentTilemap(tileList._pickRandom())
     count += 1
 })
 function purpleGreen_1 () {
-    tileList.removeAt(1)
     play1.setPosition(160, 120)
     tiles.setWallAt(tiles.getTileLocation(0, 5), false)
     tiles.setWallAt(tiles.getTileLocation(0, 4), false)
+    tileList.removeAt(1)
 }
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`play2`, SpriteKind.Player))
     play2 = sprites.create(img`
         . . . . f f f f . . . . . 
         . . f f f f f f f f . . . 
@@ -35,13 +36,11 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         . . . f f f f f f . . . . 
         . . . f f . . f f . . . . 
         `, SpriteKind.Player)
-    mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), play2)
     play2.setPosition(play1.x, play1.y)
     scene.cameraFollowSprite(play2)
     health_2 = statusbars.create(20, 4, StatusBarKind.Health)
     health_2.attachToSprite(play2)
     controller.player2.moveSprite(play2)
-    halfHealth = true
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (sprite, location) {
     tiles.setCurrentTilemap(tileList._pickRandom())
@@ -52,10 +51,10 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (spri
     count += 1
 })
 function purpleGreen_2 () {
-    tileList.removeAt(3)
     play1.setPosition(22, 104)
     tiles.setWallAt(tiles.getTileLocation(11, 6), false)
     tiles.setWallAt(tiles.getTileLocation(11, 5), false)
+    tileList.removeAt(3)
 }
 function lvl_1 () {
     scene.setBackgroundColor(6)
@@ -84,10 +83,10 @@ tileUtil.onMapLoaded(function (tilemap2) {
     }
 })
 function purplePurple () {
-    tileList.removeAt(2)
     play1.setPosition(22, 88)
     tiles.setWallAt(tiles.getTileLocation(5, 11), false)
     tiles.setWallAt(tiles.getTileLocation(6, 11), false)
+    tileList.removeAt(2)
 }
 function lv1en () {
     lvl1en = sprites.create(img`
@@ -112,9 +111,7 @@ function lv1en () {
     lvl1en.follow(play1, randint(10, 100))
     lvl1en.follow(play2, randint(10, 100))
 }
-let count2 = 0
 let lvl1en: Sprite = null
-let halfHealth = false
 let health_2: StatusBarSprite = null
 let play2: Sprite = null
 let count = 0
@@ -138,7 +135,7 @@ play1 = sprites.create(img`
     . . . f f f f f f . . . 
     . . . f f . . f f . . . 
     `, SpriteKind.Player)
-mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), play1)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets.image`play1`, SpriteKind.Player))
 play1.setPosition(80, 60)
 scene.cameraFollowSprite(play1)
 let health_1 = statusbars.create(20, 4, StatusBarKind.Health)
@@ -151,13 +148,5 @@ tilemap`level2`,
 tilemap`level8`,
 tilemap`level5`
 ]
-tiles.setCurrentTilemap(tilemap`level0`)
+tiles.setCurrentTilemap(tilemap`level2`)
 lvl_1()
-forever(function () {
-    while (count2 == 0) {
-        if (count == 4) {
-            count2 += 1
-            tiles.setCurrentTilemap(tilemap`fin lvl`)
-        }
-    }
-})
