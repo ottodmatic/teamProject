@@ -232,6 +232,21 @@ namespace myTiles {
 2 . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,sprites.dungeon.floorDark0,sprites.dungeon.floorMixed,sprites.dungeon.floorDarkDiamond,sprites.dungeon.floorDark1,sprites.dungeon.floorDark4,sprites.dungeon.floorLight2,sprites.dungeon.floorLight5,sprites.dungeon.purpleInnerNorthEast,sprites.dungeon.purpleInnerSouthEast,sprites.dungeon.stairWest,sprites.dungeon.stairEast], TileScale.Sixteen);
+            case "fin lvl":
+            case "fin lvl1":return tiles.createTilemap(hex`0c000c00080802020802080202020202020202020202080202020208080206010101010101030208080207070707070707070208080207070707070707070208080207070707070707070208020207070707070707070202080807070707070707070202020207070707070707070202080207070707070707070802080804070707070707050808020208080a09090a02020208`, img`
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+. . . . . . . . . . . . 
+`, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.dungeon.hazardLava0,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile14,sprites.swamp.swampTile6,sprites.swamp.swampTile9,sprites.dungeon.hazardLava1,sprites.dungeon.stairNorth,sprites.dungeon.floorLight3], TileScale.Sixteen);
         }
         return null;
     })

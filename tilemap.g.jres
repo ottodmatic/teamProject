@@ -195,6 +195,25 @@
         ],
         "displayName": "level7"
     },
+    "fin lvl1": {
+        "id": "fin lvl1",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAwYzAwMGMwMDA4MDgwMjAyMDgwMjA4MDIwMjAyMDIwMjAyMDIwMjAyMDIwMjA4MDIwMjAyMDIwODA4MDIwNjAxMDEwMTAxMDEwMTAzMDIwODA4MDIwNzA3MDcwNzA3MDcwNzA3MDIwODA4MDIwNzA3MDcwNzA3MDcwNzA3MDIwODA4MDIwNzA3MDcwNzA3MDcwNzA3MDIwODAyMDIwNzA3MDcwNzA3MDcwNzA3MDIwMjA4MDgwNzA3MDcwNzA3MDcwNzA3MDIwMjAyMDIwNzA3MDcwNzA3MDcwNzA3MDIwMjA4MDIwNzA3MDcwNzA3MDcwNzA3MDgwMjA4MDgwNDA3MDcwNzA3MDcwNzA1MDgwODAyMDIwODA4MGEwOTA5MGEwMjAyMDIwODAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.swamp.swampTile7",
+            "sprites.dungeon.hazardLava0",
+            "sprites.swamp.swampTile8",
+            "sprites.swamp.swampTile12",
+            "sprites.swamp.swampTile14",
+            "sprites.swamp.swampTile6",
+            "sprites.swamp.swampTile9",
+            "sprites.dungeon.hazardLava1",
+            "sprites.dungeon.stairNorth",
+            "sprites.dungeon.floorLight3"
+        ],
+        "displayName": "fin lvl"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
