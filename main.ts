@@ -11,7 +11,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (spr
     count += 1
 })
 function purpleGreen_1 () {
-    play1.setPosition(186, 120)
+    play1.setPosition(160, 120)
     tiles.setWallAt(tiles.getTileLocation(0, 5), false)
     tiles.setWallAt(tiles.getTileLocation(0, 4), false)
     tileList.removeAt(1)
