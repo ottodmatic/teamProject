@@ -1,4 +1,34 @@
 {
+    "~qv,y5CSX#C;du)?UoXn": {
+        "data": "hwQMABAAAAAA8P//D+BEAAD//0T+T00A8P//TuT//wDw/kT03b5h/+9ORPTdFGH/7+5ERL0UYQ/v7k5EvRRhD+/u7vTdFGH/8P7v9N2+Yf/w//9O5P//AAD//0T+T00AAPD//w/gRAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "player1"
+    },
+    "[JpK,Y,3;HJ3N5`KtItN": {
+        "data": "hwQQABAAAAAAAAAAAMD/AADA/A8AHGEPAGx398AXEcbAd2x3fxcRwWx39ncsEhHBfHdmd3x3EcF8d2Z3fGcWwXx39md8/GbBfHdsx2fPbMFsd3d3x8xmxsB3d3f2ZmbGAGx3Z39nZvYAwPz/d2fGDwAAAMB3xv8AAAAAAHwMAAAAAAAAwAwAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "enemy1"
+    },
+    "image1": {
+        "data": "hwQYABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8P8AAAAAAAAAAAAAwLEAAAAAAAAA//8PH/sAAAAAAAD/3b38H7EAAAAAAPAbEd29H/sAAAAAAPAREb0czPEPAAAAAB8REfEfvf8PAAAAAB8REdER+///AAAAAB8REdERsf//AAAAAB8REfEf+///AAAAAPAREb0czbEPAAAAAPAbEd29H/sAAAAAAAD/3b38H7EAAAAAAAAA//8PH/sAAAAAAAAAAAAAz7EAAAAAAAAAAAAA8P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "purplegreen2"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAA//8PwPwPAPDP/8+8u/sA//zPu7Ecuw/PzDyzu/u7+88AzLu7+7v7AADAvLv7u/sAADyzsRy7+wAAzLu7u7v7AADAzLu7u/sAAP+/vLu7/AD/vLvMu8sP8LzLzMz//wDAy7vMDMAMAL/LvMsAAAwAv8zMDAAAAADPAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "purpgreen1"
+    },
+    "image3": {
+        "data": "hwQQABAAAAAAAMzMDAAAAADAVcW1wAwAAFxVtVO8DMwAXFW1U7vMvMBVVRVTy8y8wFVVtVVczLzAVfFVVVXMzMBV/1VVtd3bAFxVVVW7XVUAXFVVVd1dVQDAVVXd3b27AABcVd3d3cwAAMDc3d3dDAAAAMDMzN0MAAAAAADczQAAAAAAAMAMAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "purplepurp"
+    },
+    "image4": {
+        "data": "hwQQABAAAAAAwPz/AAAAAADMu7vM/wAAALy7u8vdDAAAu7u7u9zN/7Abu7u7y93csBG7u7vL3dywMTO7u7vc3LAzM7O7u9z/OzMzs7u7y/s7MzMzG7HLCzszMzMbscsLOxMxM7u7ywuwGzGzu7v7AAC7y7u7u/sAAAAAvLu7/wAAAADA/P8PAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "purpgrey"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
