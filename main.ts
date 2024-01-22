@@ -49,7 +49,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (s
     count += 1
 })
 function final () {
-	
+    play1.setPosition(98, 184)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     if (count < 5) {
@@ -63,8 +63,13 @@ function purpleGreen_2 () {
     tiles.setWallAt(tiles.getTileLocation(11, 5), false)
 }
 function lvl_1 () {
+    let list: number[] = []
     scene.setBackgroundColor(6)
     tiles.setWallAt(tiles.getTileLocation(11, 6), false)
+    enemy_1(list)
+}
+function enemy_1 (enemyList: any[]) {
+	
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
     if (count < 5) {
@@ -96,38 +101,22 @@ function enemy () {
         snake.follow(play1, randint(10, 50 + 5 * count))
     }
 }
-tileUtil.onMapLoaded(function (tilemap2) {
-    enemy()
-})
 function purplePurple () {
     play1.setPosition(22, 88)
     tiles.setWallAt(tiles.getTileLocation(5, 11), false)
     tiles.setWallAt(tiles.getTileLocation(6, 11), false)
 }
 tileUtil.onMapLoaded(function (tilemap2) {
-    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
-        lvl_1()
-    }
-    if (tiles.tileAtLocationEquals(tiles.getTileLocation(0, 5), sprites.dungeon.stairEast)) {
-        purpleGreen_1()
-    }
-    if (tiles.tileAtLocationEquals(tiles.getTileLocation(5, 11), sprites.dungeon.stairNorth)) {
-        purplePurple()
-    }
-    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 5), sprites.dungeon.stairEast)) {
-        Grey()
-    }
-    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.stairWest)) {
-        purpleGreen_2()
-    }
+    enemy()
 })
-let snake: Sprite = null
 let health_2: StatusBarSprite = null
 let play2: Sprite = null
-let count = 0
 let tileList: tiles.TileMapData[] = []
-let play1: Sprite = null
 let TileMapLevel = 0
+let play1: Sprite = null
+let count = 0
+let snake: Sprite = null
+let count2 = 0
 play1 = sprites.create(img`
     . . . . f f f f . . . . 
     . . f f e e e e f f . . 
