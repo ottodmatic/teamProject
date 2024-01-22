@@ -16,31 +16,12 @@ function purpleGreen_1 () {
     tiles.setWallAt(tiles.getTileLocation(0, 5), false)
     tiles.setWallAt(tiles.getTileLocation(0, 4), false)
 }
-controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    play2 = sprites.create(img`
-        . . . . f f f f . . . . . 
-        . . f f f f f f f f . . . 
-        . f f f f f f c f f f . . 
-        f f f f f f c c f f f c . 
-        f f f c f f f f f f f c . 
-        c c c f f f e e f f c c . 
-        f f f f f e e f f c c f . 
-        f f f b f e e f b f f f . 
-        . f 4 1 f 4 4 f 1 4 f . . 
-        . f e 4 4 4 4 4 4 e f . . 
-        . f f f e e e e f f f . . 
-        f e f b 7 7 7 7 b f e f . 
-        e 4 f 7 7 7 7 7 7 f 4 e . 
-        e e f 6 6 6 6 6 6 f e e . 
-        . . . f f f f f f . . . . 
-        . . . f f . . f f . . . . 
-        `, SpriteKind.Player)
-    mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), play2)
-    play2.setPosition(play1.x, play1.y)
-    scene.cameraFollowSprite(play2)
-    health_2 = statusbars.create(20, 4, StatusBarKind.Health)
-    health_2.attachToSprite(play2)
-    controller.player2.moveSprite(play2)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (true) {
+    	
+    } else {
+    	
+    }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (sprite, location) {
     if (count < 5) {
@@ -69,7 +50,7 @@ function lvl_1 () {
     enemy_1(list)
 }
 function enemy_1 (enemyList: any[]) {
-	
+    enemy()
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
     if (count < 5) {
@@ -78,6 +59,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (spri
     count += 1
 })
 function enemy () {
+    count2 = 0
     snake = sprites.create(img`
         . . . . c c c c c c . . . . . . 
         . . . c 6 7 7 7 7 6 c . . . . . 
@@ -99,8 +81,28 @@ function enemy () {
     for (let index = 0; index < randint(1, 2 * count); index++) {
         tiles.placeOnTile(snake, tiles.getTileLocation(randint(0, 11), randint(0, 11)))
         snake.follow(play1, randint(10, 50 + 5 * count))
+        count2 += 1
     }
 }
+tileUtil.onMapLoaded(function (tilemap2) {
+    tileUtil.onMapLoaded(function (tilemap2) {
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
+        lvl_1()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(0, 5), sprites.dungeon.stairEast)) {
+        purpleGreen_1()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(5, 11), sprites.dungeon.stairNorth)) {
+        purplePurple()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 5), sprites.dungeon.stairEast)) {
+        Grey()
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.stairWest)) {
+        purpleGreen_2()
+    }
+})
+})
 function purplePurple () {
     play1.setPosition(22, 88)
     tiles.setWallAt(tiles.getTileLocation(5, 11), false)
@@ -109,8 +111,6 @@ function purplePurple () {
 tileUtil.onMapLoaded(function (tilemap2) {
     enemy()
 })
-let health_2: StatusBarSprite = null
-let play2: Sprite = null
 let tileList: tiles.TileMapData[] = []
 let TileMapLevel = 0
 let play1: Sprite = null
