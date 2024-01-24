@@ -145,7 +145,8 @@ function lvl_1 () {
     enemy_1(enmlist)
 }
 function enemy_1 (enemyList: any[]) {
-    enemy()
+    let mySprite: Sprite = null
+    enemy(mySprite)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
     if (count < 5) {
@@ -153,12 +154,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (spri
     }
     count += 1
 })
-function enemy () {
+function enemy (enemy_: Sprite) {
     count2 = 0
-    enm_1 = enmlist._pickRandom()
     for (let index = 0; index < randint(1, 2 * count); index++) {
-        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(0, 11), randint(0, 11)))
-        enm_1.follow(play1, randint(10, 50 + 5 * count))
+        tiles.placeOnTile(enemy_, tiles.getTileLocation(randint(0, 11), randint(0, 11)))
+        enemy_.follow(play1, randint(10, 50 + 5 * count))
+        emHealth = statusbars.create(20, 4, StatusBarKind.Health)
+        emHealth.attachToSprite(enemy_)
         count2 += 1
     }
 }
@@ -187,13 +189,15 @@ function purplePurple () {
     tiles.setWallAt(tiles.getTileLocation(6, 11), false)
 }
 tileUtil.onMapLoaded(function (tilemap2) {
-    enemy()
+    enm_1 = enmlist._pickRandom()
+    enemy(enm_1)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(sprite)
-    sprites.destroy(otherSprite, effects.ashes, 500)
+    emHealth.value += -20
 })
 let enm_1: Sprite = null
+let emHealth: StatusBarSprite = null
 let facingDown = false
 let facingUp = false
 let facingRight = false
@@ -253,7 +257,7 @@ forever(function () {
         final()
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(100, function () {
     if (controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed()))) {
         if (play1.vx < 0) {
             animation.stopAnimation(animation.AnimationTypes.ImageAnimation, play1)
