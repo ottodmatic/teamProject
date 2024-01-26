@@ -1,10 +1,20 @@
 namespace SpriteKind {
     export const Door = SpriteKind.create()
+    export const Acid = SpriteKind.create()
+    export const POWER = SpriteKind.create()
 }
+sprites.onCreated(SpriteKind.Enemy, function (sprite) {
+	
+})
 function Grey () {
     play1.setPosition(22, 88)
     tiles.setWallAt(tiles.getTileLocation(11, 5), true)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Acid, function (sprite, otherSprite) {
+    statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -20
+    sprites.destroy(otherSprite)
+    pause(200)
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     play1,
@@ -266,8 +276,7 @@ function purpleGreen_2 () {
     tiles.setWallAt(tiles.getTileLocation(11, 5), true)
 }
 function lvl_1 () {
-    scene.setBackgroundColor(6)
-    tiles.setWallAt(tiles.getTileLocation(11, 6), true)
+	
 }
 statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     sprites.destroy(status.spriteAttachedTo(), effects.ashes, 500)
@@ -349,18 +358,19 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (spri
 })
 function enemy (list: Image[]) {
     count2 = 0
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < 2 * count; index++) {
         enm_1 = sprites.create(list._pickRandom(), SpriteKind.Enemy)
-        enm_1.follow(play1, randint(10, 50 + 5 * count))
-        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(0, 11), randint(0, 11)))
+        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(0, 10), randint(0, 10)))
         statusbars.create(20, 4, StatusBarKind.EnemyHealth).attachToSprite(enm_1)
+        statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, enm_1).value = 100
         count2 += 1
+        if (!(enm_1.image.equals(assets.image`purpgrey`))) {
+            enm_1.follow(play1, randint(10, 50 + 5 * count))
+        }
     }
 }
 tileUtil.onMapLoaded(function (tilemap2) {
-    tileUtil.onMapLoaded(function (tilemap2) {
-    enemy(enmlist)
-})
+    powerup = sprites.create(powerups._pickRandom(), SpriteKind.POWER)
 })
 function purplePurple () {
     play1.setPosition(22, 88)
@@ -451,23 +461,37 @@ tileUtil.onMapLoaded(function (tilemap2) {
     
 })
 })
+sprites.onCreated(SpriteKind.Acid, function (sprite) {
+    timer.after(5000, function () {
+        sprites.destroy(sprite)
+    })
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(sprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -20
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -1
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Acid, function (sprite, otherSprite) {
+    sprites.destroy(sprite)
+    sprites.destroy(otherSprite)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -5
+    pause(200)
+})
+let Acid: Sprite = null
+let powerup: Sprite = null
 let enm_1: Sprite = null
 let count2 = 0
 let projectile: Sprite = null
-let count = 0
 let facingDown = false
 let facingRight = false
 let facingLeft = false
 let facingUp = false
+let powerups: Image[] = []
 let tileList: tiles.TileMapData[] = []
 let play1: Sprite = null
+let count = 0
+count = 1
 let TileMapLevel = 0
 play1 = sprites.create(img`
     . . . . f f f f . . . . 
@@ -494,6 +518,7 @@ let health_1 = statusbars.create(20, 4, StatusBarKind.Health)
 health_1.value = 100
 health_1.attachToSprite(play1, 0, 0)
 controller.moveSprite(play1, 100, 100)
+scene.setBackgroundColor(6)
 let enmlist = [
 assets.image`purplepurp`,
 assets.image`purpgreen1`,
@@ -507,8 +532,18 @@ tilemap`level2`,
 tilemap`level8`,
 tilemap`level5`
 ]
+powerups = [
+assets.image`balls lol`,
+assets.image`str`,
+assets.image`Vigor`,
+assets.image`shotty`
+]
 tiles.setCurrentTilemap(tilemap`level0`)
-lvl_1()
+tiles.setWallAt(tiles.getTileLocation(11, 6), true)
+let bouncy = false
+let heal3 = false
+let strength = false
+let shotty = false
 game.onUpdate(function () {
     if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
         tiles.setWallAt(tiles.getTileLocation(11, 6), false)
@@ -538,9 +573,7 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
-    if (controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed()))) {
-    	
-    } else {
+    if (!(controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed())))) {
         if (facingLeft == true) {
             play1.setImage(img`
                 . . . f f f f f . . . . 
@@ -623,15 +656,34 @@ game.onUpdate(function () {
         }
     }
 })
-game.onUpdate(function () {
-    if (count2 == 0) {
-    	
-    } else {
-    	
+game.onUpdateInterval(5000, function () {
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        if (value.image.equals(assets.image`purpgrey`)) {
+            Acid = sprites.create(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 7 7 . . . . . . . 
+                . . . . . . a c 7 c . . . . . . 
+                . . . . . a a a c 7 7 . . . . . 
+                . . . . 7 c 7 a 7 a 7 c . . . . 
+                . . . . c 7 7 7 a a 7 7 . . . . 
+                . . . . . 7 a 7 a c 7 . . . . . 
+                . . . . . . 7 7 c c . . . . . . 
+                . . . . . . . 7 7 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, SpriteKind.Acid)
+            Acid.setPosition(value.x, value.y)
+            Acid.follow(play1, 50)
+        }
     }
 })
 forever(function () {
-    if (count == 5) {
+    if (count == 6) {
         tiles.setCurrentTilemap(tilemap`fin lvl`)
         scene.setBackgroundColor(4)
         count += 1
