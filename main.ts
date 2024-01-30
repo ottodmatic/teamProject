@@ -358,9 +358,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (spri
 })
 function enemy (list: Image[]) {
     count2 = 0
-    for (let index = 0; index < 2 * count; index++) {
+    for (let index = 0; index < 1; index++) {
         enm_1 = sprites.create(list._pickRandom(), SpriteKind.Enemy)
-        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(0, 10), randint(0, 10)))
+        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(1, 10), randint(1, 10)))
         statusbars.create(20, 4, StatusBarKind.EnemyHealth).attachToSprite(enm_1)
         statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, enm_1).value = 100
         count2 += 1
@@ -370,7 +370,7 @@ function enemy (list: Image[]) {
     }
 }
 tileUtil.onMapLoaded(function (tilemap2) {
-    powerup = sprites.create(powerups._pickRandom(), SpriteKind.POWER)
+	
 })
 function purplePurple () {
     play1.setPosition(22, 88)
@@ -460,6 +460,7 @@ tileUtil.onMapLoaded(function (tilemap2) {
 
     
 })
+enemy(enmlist)
 })
 sprites.onCreated(SpriteKind.Acid, function (sprite) {
     timer.after(5000, function () {
@@ -479,7 +480,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     pause(200)
 })
 let Acid: Sprite = null
-let powerup: Sprite = null
 let enm_1: Sprite = null
 let count2 = 0
 let projectile: Sprite = null
@@ -487,8 +487,8 @@ let facingDown = false
 let facingRight = false
 let facingLeft = false
 let facingUp = false
-let powerups: Image[] = []
 let tileList: tiles.TileMapData[] = []
+let enmlist: Image[] = []
 let play1: Sprite = null
 let count = 0
 count = 1
@@ -519,7 +519,7 @@ health_1.value = 100
 health_1.attachToSprite(play1, 0, 0)
 controller.moveSprite(play1, 100, 100)
 scene.setBackgroundColor(6)
-let enmlist = [
+enmlist = [
 assets.image`purplepurp`,
 assets.image`purpgreen1`,
 assets.image`purplegreen2`,
@@ -532,7 +532,7 @@ tilemap`level2`,
 tilemap`level8`,
 tilemap`level5`
 ]
-powerups = [
+let powerups = [
 assets.image`balls lol`,
 assets.image`str`,
 assets.image`Vigor`,
@@ -569,6 +569,12 @@ game.onUpdate(function () {
         if (count2 == 0) {
             tiles.setWallAt(tiles.getTileLocation(11, 6), false)
             tiles.setWallAt(tiles.getTileLocation(11, 5), false)
+        }
+    }
+    if (tiles.tileAtLocationEquals(tiles.getTileLocation(2, 2), assets.tile`myTile9`)) {
+        if (count2 == 0) {
+            game.showLongText("YOU WIN.... TO BE CONTINUED", DialogLayout.Bottom)
+            game.reset()
         }
     }
 })
