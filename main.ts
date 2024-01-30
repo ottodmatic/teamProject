@@ -3,6 +3,13 @@ namespace SpriteKind {
     export const Acid = SpriteKind.create()
     export const POWER = SpriteKind.create()
 }
+/**
+ * Use WASD or Arrow Keys to move
+ * 
+ * Use Z or Space Bar to shoot forward
+ * 
+ * use X to shoot backwards
+ */
 sprites.onCreated(SpriteKind.Enemy, function (sprite) {
 	
 })
@@ -84,6 +91,112 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (spr
     }
     count += 1
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (bouncy == true) {
+        projectile.setBounceOnWall(true)
+    }
+    if (play1.vx != 0 || play1.vy != 0) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 2 2 4 2 . . . . . . 
+            . . . . . . 2 4 2 2 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, play1, -1 * play1.vx, -1 * play1.vy)
+    } else {
+        if (facingLeft == true) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . 2 2 4 2 . . . . . . 
+                . . . . . . 2 4 2 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, play1, 100, 0)
+        }
+        if (facingRight == true) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . 2 2 4 2 . . . . . . 
+                . . . . . . 2 4 2 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, play1, -100, 0)
+        }
+        if (facingUp == true) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . 2 2 4 2 . . . . . . 
+                . . . . . . 2 4 2 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, play1, 0, 100)
+        }
+        if (facingDown == true) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . 2 2 4 2 . . . . . . 
+                . . . . . . 2 4 2 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, play1, 0, -100)
+        }
+    }
+})
 function purpleGreen_1 () {
     play1.setPosition(160, 120)
     tiles.setWallAt(tiles.getTileLocation(0, 5), true)
@@ -129,6 +242,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, -100, 0)
+            if (bouncy == true) {
+                projectile.setBounceOnWall(true)
+            }
         }
         if (facingRight == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -149,6 +265,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 100, 0)
+            if (bouncy == true) {
+                projectile.setBounceOnWall(true)
+            }
         }
         if (facingUp == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -169,6 +288,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, -100)
+            if (bouncy == true) {
+                projectile.setBounceOnWall(true)
+            }
         }
         if (facingDown == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -189,6 +311,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, 100)
+            if (bouncy == true) {
+                projectile.setBounceOnWall(true)
+            }
         }
     }
 })
@@ -282,6 +407,9 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     sprites.destroy(status.spriteAttachedTo(), effects.ashes, 500)
     count2 += -1
 })
+function I_HAVE_THE_POWER () {
+	
+}
 statusbars.onZero(StatusBarKind.Health, function (status) {
     sprites.destroy(status.spriteAttachedTo(), effects.fire, 500)
     game.splash("GAME OVER")
@@ -358,7 +486,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (spri
 })
 function enemy (list: Image[]) {
     count2 = 0
-    for (let index = 0; index < 1; index++) {
+    for (let index = 0; index < 2 * count; index++) {
         enm_1 = sprites.create(list._pickRandom(), SpriteKind.Enemy)
         tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(1, 10), randint(1, 10)))
         statusbars.create(20, 4, StatusBarKind.EnemyHealth).attachToSprite(enm_1)
@@ -370,7 +498,8 @@ function enemy (list: Image[]) {
     }
 }
 tileUtil.onMapLoaded(function (tilemap2) {
-	
+    powerup = sprites.create(powerups._pickRandom(), SpriteKind.POWER)
+    tiles.placeOnTile(powerup, tiles.getTileLocation(randint(1, 10), randint(1, 10)))
 })
 function purplePurple () {
     play1.setPosition(22, 88)
@@ -469,7 +598,22 @@ sprites.onCreated(SpriteKind.Acid, function (sprite) {
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(sprite)
-    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -20
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -1 * P_P
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.POWER, function (sprite, otherSprite) {
+    if (otherSprite.image.equals(assets.image`balls lol`)) {
+        bouncy = true
+    }
+    if (otherSprite.image.equals(assets.image`shotty`)) {
+    	
+    }
+    if (otherSprite.image.equals(assets.image`Vigor`)) {
+        health_1.value = 100
+    }
+    if (otherSprite.image.equals(assets.image`str`)) {
+        P_P += 10
+    }
+    sprites.destroy(otherSprite)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Acid, function (sprite, otherSprite) {
     sprites.destroy(sprite)
@@ -480,6 +624,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     pause(200)
 })
 let Acid: Sprite = null
+let powerup: Sprite = null
 let enm_1: Sprite = null
 let count2 = 0
 let projectile: Sprite = null
@@ -487,8 +632,12 @@ let facingDown = false
 let facingRight = false
 let facingLeft = false
 let facingUp = false
+let bouncy = false
+let powerups: Image[] = []
 let tileList: tiles.TileMapData[] = []
 let enmlist: Image[] = []
+let health_1: StatusBarSprite = null
+let P_P = 0
 let play1: Sprite = null
 let count = 0
 count = 1
@@ -511,10 +660,11 @@ play1 = sprites.create(img`
     . . . f f f f f f . . . 
     . . . f f . . f f . . . 
     `, SpriteKind.Player)
+P_P = 20
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), play1)
 play1.setPosition(80, 60)
 scene.cameraFollowSprite(play1)
-let health_1 = statusbars.create(20, 4, StatusBarKind.Health)
+health_1 = statusbars.create(20, 4, StatusBarKind.Health)
 health_1.value = 100
 health_1.attachToSprite(play1, 0, 0)
 controller.moveSprite(play1, 100, 100)
@@ -532,7 +682,7 @@ tilemap`level2`,
 tilemap`level8`,
 tilemap`level5`
 ]
-let powerups = [
+powerups = [
 assets.image`balls lol`,
 assets.image`str`,
 assets.image`Vigor`,
@@ -540,7 +690,7 @@ assets.image`shotty`
 ]
 tiles.setCurrentTilemap(tilemap`level0`)
 tiles.setWallAt(tiles.getTileLocation(11, 6), true)
-let bouncy = false
+bouncy = false
 let heal3 = false
 let strength = false
 let shotty = false
