@@ -29,26 +29,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "purpgrey"
     },
-    "image7": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAAAAPAiDwAAAAAA8CLyAAAAAAAALyIPAAAAAPAi8gAAAAAA8CIPAAAAAAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Vigor"
-    },
-    "image6": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAD/DwAAAAAA8P//AAAAAAAA/w8AAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAP8PAAAAAADw//8AAAAAAAD/DwAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "str"
-    },
-    "image5": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAA8A8AAAAAAPAf8QAAAAAAAB/xAAAAAAAAH/EAAAAAAAAf8QAAAAAAAB/xAAAAAAAAH/EAAAAAAAD//wAAAAAAAO/+AAAAAAAA7/4PAAAAAADv/vAAAAAAAO/+/w8AAAAA8O7uDwAAAAAA//8PAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "shotty"
-    },
-    "image8": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/DwAAAAAA8CLyAAAAAAAvIiIPAAAA8CIiIvIAAADwIiIi8gAAAPAiIiLyAAAAAC8iIg8AAAAA8CLyAAAAAAAA/w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "balls lol"
-    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
