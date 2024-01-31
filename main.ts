@@ -92,9 +92,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (spr
     count += 1
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (bouncy == true) {
-        projectile.setBounceOnWall(true)
-    }
     if (play1.vx != 0 || play1.vy != 0) {
         projectile = sprites.createProjectileFromSprite(img`
             . . . . . . . . . . . . . . . . 
@@ -134,6 +131,44 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 100, 0)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, -50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, 50)
+            }
         }
         if (facingRight == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -154,6 +189,44 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, -100, 0)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, 50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, -50)
+            }
         }
         if (facingUp == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -174,6 +247,44 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, 100)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, 50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, 50)
+            }
         }
         if (facingDown == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -194,6 +305,44 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, -100)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, -50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, -50)
+            }
         }
     }
 })
@@ -222,6 +371,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, play1, play1.vx, play1.vy)
+        projectile.setBounceOnWall(true)
     } else {
         if (facingLeft == true) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -242,8 +392,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, -100, 0)
-            if (bouncy == true) {
-                projectile.setBounceOnWall(true)
+            projectile.setBounceOnWall(true)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, 50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, -50)
             }
         }
         if (facingRight == true) {
@@ -265,8 +451,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 100, 0)
-            if (bouncy == true) {
-                projectile.setBounceOnWall(true)
+            projectile.setBounceOnWall(true)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, -50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, 50)
             }
         }
         if (facingUp == true) {
@@ -288,8 +510,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, -100)
-            if (bouncy == true) {
-                projectile.setBounceOnWall(true)
+            projectile.setBounceOnWall(true)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, -50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, -50)
             }
         }
         if (facingDown == true) {
@@ -311,8 +569,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, play1, 0, 100)
-            if (bouncy == true) {
-                projectile.setBounceOnWall(true)
+            projectile.setBounceOnWall(true)
+            if (shotty == true) {
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, 50, 50)
+                projectile = sprites.createProjectileFromSprite(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 4 2 . . . . . . 
+                    . . . . . . 2 4 2 2 . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `, play1, -50, 50)
             }
         }
     }
@@ -605,7 +899,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.POWER, function (sprite, otherSp
         bouncy = true
     }
     if (otherSprite.image.equals(assets.image`shotty`)) {
-    	
+        shotty = true
     }
     if (otherSprite.image.equals(assets.image`Vigor`)) {
         health_1.value = 100
@@ -632,6 +926,7 @@ let facingDown = false
 let facingRight = false
 let facingLeft = false
 let facingUp = false
+let shotty = false
 let bouncy = false
 let powerups: Image[] = []
 let tileList: tiles.TileMapData[] = []
@@ -693,7 +988,7 @@ tiles.setWallAt(tiles.getTileLocation(11, 6), true)
 bouncy = false
 let heal3 = false
 let strength = false
-let shotty = false
+shotty = false
 game.onUpdate(function () {
     if (tiles.tileAtLocationEquals(tiles.getTileLocation(11, 6), sprites.dungeon.doorOpenEast)) {
         tiles.setWallAt(tiles.getTileLocation(11, 6), false)
