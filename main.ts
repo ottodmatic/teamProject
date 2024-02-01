@@ -18,9 +18,11 @@ function Grey () {
     tiles.setWallAt(tiles.getTileLocation(11, 5), true)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Acid, function (sprite, otherSprite) {
-    statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -20
-    sprites.destroy(otherSprite)
-    pause(200)
+    if (shield == false) {
+        statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -20
+        sprites.destroy(otherSprite)
+        pause(200)
+    }
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -735,7 +737,7 @@ function enemy (list: Image[]) {
     count2 = 0
     for (let index = 0; index < 2 * count; index++) {
         enm_1 = sprites.create(list._pickRandom(), SpriteKind.Enemy)
-        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(1, 10), randint(1, 10)))
+        tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(2, 10), randint(2, 10)))
         statusbars.create(20, 4, StatusBarKind.EnemyHealth).attachToSprite(enm_1)
         statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, enm_1).value = 100
         count2 += 1
@@ -839,9 +841,7 @@ tileUtil.onMapLoaded(function (tilemap2) {
 enemy(enmlist)
 })
 sprites.onCreated(SpriteKind.Projectile, function (sprite) {
-    if (bouncy == true) {
-        sprite.setBounceOnWall(true)
-    }
+	
 })
 sprites.onCreated(SpriteKind.Acid, function (sprite) {
     timer.after(5000, function () {
@@ -853,8 +853,11 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -1 * P_P
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.POWER, function (sprite, otherSprite) {
-    if (otherSprite.image.equals(assets.image`balls lol`)) {
-        bouncy = true
+    if (otherSprite.image.equals(assets.image`nodamage`)) {
+        shield = true
+        timer.after(5000, function () {
+            shield = false
+        })
     }
     if (otherSprite.image.equals(assets.image`shotty`)) {
         shotty = true
@@ -876,8 +879,10 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Acid, function (sprite, othe
     sprites.destroy(otherSprite)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -5
-    pause(200)
+    if (shield == false) {
+        statusbars.getStatusBarAttachedTo(StatusBarKind.Health, sprite).value += -5
+        pause(200)
+    }
 })
 let Acid: Sprite = null
 let powerup: Sprite = null
@@ -889,7 +894,7 @@ let facingRight = false
 let facingLeft = false
 let facingUp = false
 let shotty = false
-let bouncy = false
+let shield = false
 let powerups: Image[] = []
 let tileList: tiles.TileMapData[] = []
 let enmlist: Image[] = []
@@ -942,14 +947,14 @@ tilemap`level8`,
 tilemap`level5`
 ]
 powerups = [
-assets.image`balls lol`,
+assets.image`nodamage`,
 assets.image`str`,
 assets.image`Vigor`,
 assets.image`shotty`
 ]
 tiles.setCurrentTilemap(tilemap`level0`)
 tiles.setWallAt(tiles.getTileLocation(11, 6), true)
-bouncy = false
+shield = false
 let heal3 = false
 let strength = false
 shotty = false
