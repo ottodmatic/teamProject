@@ -575,6 +575,10 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (s
 function final () {
     play1.setPosition(98, 184)
 }
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Acid, function (sprite, otherSprite) {
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, sprite).value += -2.5
+    pause(200)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     play1,
@@ -740,10 +744,10 @@ function enemy (list: Image[]) {
         tiles.placeOnTile(enm_1, tiles.getTileLocation(randint(2, 10), randint(2, 10)))
         statusbars.create(20, 4, StatusBarKind.EnemyHealth).attachToSprite(enm_1)
         statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, enm_1).value = 100
-        count2 += 1
         if (!(enm_1.image.equals(assets.image`purpgrey`))) {
             enm_1.follow(play1, randint(10, 50 + 5 * count))
         }
+        count2 += 1
     }
 }
 tileUtil.onMapLoaded(function (tilemap2) {
@@ -1103,7 +1107,7 @@ game.onUpdateInterval(5000, function () {
     }
 })
 forever(function () {
-    if (count == 6) {
+    if (count == 5) {
         tiles.setCurrentTilemap(tilemap`fin lvl`)
         scene.setBackgroundColor(4)
         count += 1
